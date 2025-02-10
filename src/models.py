@@ -1,9 +1,10 @@
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, func
 from sqlalchemy.orm import relationship, declarative_base
 from sqlalchemy import create_engine
 from eralchemy2 import render_er
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -14,6 +15,7 @@ class Users(Base):
     first_name = Column(String(250), nullable=False)
     last_name = Column(String(50))
     password = Column(String(16), nullable=False)
+    subscription_date = Column(DateTime, server_default=func.now()) # Nueva columna de fecha de subscripción
 
 class Posts(Base):
     __tablename__ = 'posts'
