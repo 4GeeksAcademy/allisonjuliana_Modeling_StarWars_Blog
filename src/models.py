@@ -75,3 +75,4 @@ class FavoriteCharacters(Base):
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
+
